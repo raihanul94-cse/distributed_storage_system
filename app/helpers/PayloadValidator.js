@@ -36,7 +36,7 @@ class PayloadValidator {
       isValid: true,
       data: data,
     };
-  };
+  }
 }
 
 module.exports = PayloadValidator;

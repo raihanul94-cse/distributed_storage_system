@@ -5,10 +5,10 @@ const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
 
-let url = `mongodb://${process.env.DB_HOST}/${process.env.DB_DATABASE}`; 
+let url = `mongodb://${process.env.DB_HOST}/${process.env.DB_DATABASE}`;
 
-if(process.env.NODE_ENV === "production"){
-    url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_DATABASE}?retryWrites=true&w=majority`;
+if (process.env.NODE_ENV === "production") {
+  url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_DATABASE}?retryWrites=true&w=majority`;
 }
 
 const db = {};

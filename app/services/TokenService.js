@@ -30,19 +30,13 @@ class TokenService {
   };
 
   generateAuthTokens = async (user) => {
-    const accessTokenExpires = moment().add(
-      jwtConfig.ttl,
-      "minutes"
-    );
+    const accessTokenExpires = moment().add(jwtConfig.ttl, "minutes");
     const accessToken = await this.generateToken(
       user.id,
       accessTokenExpires,
       "access"
     );
-    const refreshTokenExpires = moment().add(
-      jwtConfig.refresh_ttl,
-      "minutes"
-    );
+    const refreshTokenExpires = moment().add(jwtConfig.refresh_ttl, "minutes");
     const refreshToken = await this.generateToken(
       user.id,
       refreshTokenExpires,

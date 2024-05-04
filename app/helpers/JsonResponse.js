@@ -8,7 +8,13 @@ class JsonResponse {
     });
   };
 
-  error = (res, message, data = null, status = 400, type = "invalid-request") => {
+  error = (
+    res,
+    message,
+    data = null,
+    status = 400,
+    type = "invalid-request"
+  ) => {
     return res.status(status).json({
       data: data,
       status: status,
