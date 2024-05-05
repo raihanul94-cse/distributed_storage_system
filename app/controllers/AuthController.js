@@ -1,14 +1,14 @@
 const bcrypt = require("bcryptjs");
 const TokenService = require("../services/TokenService");
-const model = require("../models");
 const PayloadValidator = require("../helpers/PayloadValidator");
 const JsonResponse = require("../helpers/JsonResponse");
+const model = require("../models");
 const User = model.user;
 
 class AuthController {
   constructor() {
     this.tokenService = new TokenService();
-  }
+  };
 
   login = async (req, res) => {
     try {
@@ -56,7 +56,7 @@ class AuthController {
       }
       return JsonResponse.error(res, "Invalid login credentials");
     } catch (err) {
-      return JsonResponse.error(res, "Internal server error", "internal-error");
+      return JsonResponse.error(res, "Internal server error", null, 500, "internal-error");
     }
   };
 
@@ -120,7 +120,7 @@ class AuthController {
       }
       return JsonResponse.error(res, "Failed to register user");
     } catch (err) {
-      return JsonResponse.error(res, "Internal server error", "internal-error");
+      return JsonResponse.error(res, "Internal server error", null, 500, "internal-error");
     }
   };
 }
